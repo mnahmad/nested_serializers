@@ -1,0 +1,59 @@
+
+Skip to content
+Pull requests
+Issues
+Marketplace
+Explore
+@mnahmad
+mnahmad /
+token_auth
+
+1
+0
+
+    0
+
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+
+    Settings
+
+token_auth/.gitignore
+Muhammad initial commit
+Latest commit 5e045aa 10 days ago
+History
+0 contributors
+27 lines (19 sloc) 382 Bytes
+
+# from repo https://gist.github.com/LeeHanYeong/463837a5c5338fa745c0f3b9b2fba5f0 
+
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+migration/
+
+
+### macOS ###
+*.DS_Store
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
