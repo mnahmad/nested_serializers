@@ -27,5 +27,7 @@ from .core import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'add/', views.BookView.as_view(), name='post'),
+    path(r'addstate/', views.StateView.as_view(), name='poststate'),
+    path(r'addtown/', views.TownView.as_view(), name='posttown'),
 
 ]

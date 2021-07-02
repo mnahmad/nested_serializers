@@ -12,3 +12,21 @@ class BookDetails(models.Model):
     summary = models.CharField(max_length=200)
 
 
+class country(models.Model):
+    #date in this modules represents time stamps
+    uploaded_dte = models.DateTimeField(auto_now_add=True, null = False)
+    currency = models.CharField(max_length=3)
+    cntry_name = models.CharField(max_length=100)
+
+
+class state(models.Model):
+    upload_date = models.DateTimeField(auto_now_add=True,null=False)
+    state_name = models.CharField(max_length=100)
+    country = models.ForeignKey('country', on_delete=models.CASCADE)
+
+class town(models.Model):
+    upload_date = models.DateTimeField(auto_now_add=True,null=False)
+    town_name = models.CharField(max_length=100)
+    state = models.ForeignKey('state', on_delete=models.CASCADE)
+    
+

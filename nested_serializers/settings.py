@@ -26,6 +26,10 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# SECURITY WARNING: keep the secret key used in production secret!
+#SECRET_KEY = ''
+
+
 # Application definition
 
 INSTALLED_APPS = [

@@ -1,36 +1,3 @@
-
-Skip to content
-Pull requests
-Issues
-Marketplace
-Explore
-@mnahmad
-mnahmad /
-token_auth
-
-1
-0
-
-    0
-
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-
-    Settings
-
-token_auth/.gitignore
-Muhammad initial commit
-Latest commit 5e045aa 10 days ago
-History
-0 contributors
-27 lines (19 sloc) 382 Bytes
-
 # from repo https://gist.github.com/LeeHanYeong/463837a5c5338fa745c0f3b9b2fba5f0 
 
 ### Django ###

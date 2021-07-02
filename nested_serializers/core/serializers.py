@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Book,BookDetails
+from .models import Book,BookDetails, country,state
 
 
 class BookDetailsSerializer(serializers.ModelSerializer):
@@ -8,7 +8,6 @@ class BookDetailsSerializer(serializers.ModelSerializer):
     class Meta:
         model = BookDetails
         fields= ('id','summary')
-
 
 
 class BookSerializer(serializers.ModelSerializer):
@@ -34,3 +33,27 @@ class BookSerializer(serializers.ModelSerializer):
         model = Book
         fields = ('id','rbook','title','author')   
 
+
+
+
+class CountrySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = country
+        fields=('id','currency','cntry_name')
+
+
+
+class StateSerializer(serializers.ModelSerializer):
+    country = CountrySerializer()
+
+    class Meta:
+        model = state   
+        fields = ('id','upload_date','state_name','country') 
+
+
+class TownSerializer(serializers.ModelSerializer):
+    state = StateSerializer()
+
+    class Meta:
+        model = state   
+        fields = ('id','upload_date','state_name','state') 
