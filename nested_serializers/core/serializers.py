@@ -56,4 +56,4 @@ class TownSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = state   
-        fields = ('id','upload_date','state_name','state') 
+        fields = ('id','upload_date','town_name','state') 
