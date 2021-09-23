@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Book,BookDetails, country,state
+from .models import Book,BookDetails, country,state, MyPhoto
 
 
 class BookDetailsSerializer(serializers.ModelSerializer):
@@ -57,3 +57,10 @@ class TownSerializer(serializers.ModelSerializer):
     class Meta:
         model = state   
         fields = ('id','upload_date','town_name','state') 
+
+class MyPhotoSerializer(serializers.ModelSerializer):
+    class Meta():
+        model = MyPhoto
+        fields = ('file', 'description', 'uploaded_at')
+
+        

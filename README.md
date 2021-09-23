@@ -1,14 +1,15 @@
 # Nested Serializer 
+Nested serializers is a difficult concept and it took me a lot of time to figure out all the issues, thus, I decided to create a workiing example so others can also reading the stated blogs plus go through here. This repo also contains example code to allow image upload using DRF, please see the section [Photo Upload](#Photo-upload)  
 
 Most of the code in this repo is taken from [this](https://medium.com/@rushic24/creating-nested-serializers-in-django-rest-framework-5110c6674fba) medium post and [this](https://medium.com/@gurupratap.matharu/build-a-restapi-using-nested-serializers-in-django-rest-framework-c0f6a31fd865) medium post.  The code is enhanced to apply some chesk, explained in details below. 
 
-How this repo should used. 
+How this repo should be used. 
 1. Read [this](https://medium.com/@rushic24/creating-nested-serializers-in-django-rest-framework-5110c6674fba) post first and then [this](https://medium.com/@gurupratap.matharu/build-a-restapi-using-nested-serializers-in-django-rest-framework-c0f6a31fd865).
 
 2. Clone this repository
 3. create virtual env
 4. Install packages as required by this repo and explained below
-5. Run `makemigratiojns` and `mightate`
+5. Run `python3 manage.py makemigratiojns` and `python3 manage.py mightate`
 6. Add `SECRET_KEY ` to settings.py
 7. Run `python3 manage.py runserver`
 
@@ -46,6 +47,14 @@ curl --header "Content-Type: application/json" --request POST --data '{"test":"t
 
 ```
 
+## Photo upload
+Photo upload using DRS 
 
+Code taken from [this blog](https://chrisbartos.com/articles/uploading-images-drf/) 
 
-This is work in progres 
+how to use the code. 
+
+1. make changes in the setting.py for media file. 
+2. add class in models to take care of the photo data 
+3. add a serializer to handle the data. 
+4. follow the blog to build post request 

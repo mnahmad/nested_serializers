@@ -5,9 +5,11 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from .models import Book, country, state, town
+from rest_framework.parsers import MultiPartParser, FormParser
 
-from .serializers import BookSerializer, BookDetailsSerializer, StateSerializer,CountrySerializer
+from .models import Book, country, state, town, MyPhoto
+
+from .serializers import BookSerializer, BookDetailsSerializer, StateSerializer,CountrySerializer, MyPhotoSerializer
 
 
 from rest_framework import status # for HTTP_200_BAD_REQUES etc
@@ -91,3 +93,19 @@ class TownView(APIView):
 
             return Response(status=status.HTTP_200_OK)
         return Response(status=status.HTTP_400_BAD_REQUEST)    
+
+class MyPhotoView(APIView):
+
+    parser_class = (MultiPartParser,FormParser)
+
+    def post(self,request):
+
+        file_serializer = MyPhotoSerializer(data=request.data)
+        print(file_serializer)
+        if file_serializer.is_valid():
+            file_serializer.save()
+            return Response(file_serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+

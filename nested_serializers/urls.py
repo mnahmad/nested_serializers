@@ -29,5 +29,6 @@ urlpatterns = [
     path(r'add/', views.BookView.as_view(), name='post'),
     path(r'addstate/', views.StateView.as_view(), name='poststate'),
     path(r'addtown/', views.TownView.as_view(), name='posttown'),
+    url(r'upload/$', views.MyPhotoView.as_view(), name='file-upload'),
 
 ]
