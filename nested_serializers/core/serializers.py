@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Book,BookDetails, country,state, MyPhoto
+from .models import Book,BookDetails, country,state, MyPhoto, Entry, One2Many
 
 
 class BookDetailsSerializer(serializers.ModelSerializer):
@@ -63,4 +63,15 @@ class MyPhotoSerializer(serializers.ModelSerializer):
         model = MyPhoto
         fields = ('file', 'description', 'uploaded_at')
 
-        
+
+class EntrySerializer(serializers.ModelSerializer):
+    class Meta():
+        model = Entry
+        fields = ("recorded_date","name","description" )
+
+class One2ManySerializer(serializers.ModelSerializer):
+    entry = EntrySerializer()
+
+    class Meta:
+        model = One2Many
+        fields = ("option","entry")

@@ -1,5 +1,5 @@
 # Nested Serializer 
-Nested serializers is a difficult concept and it took me a lot of time to figure out all the issues, thus, I decided to create a workiing example so others can also reading the stated blogs plus go through here. This repo also contains example code to allow image upload using DRF, please see the section [Photo Upload](#Photo-upload)  
+Nested serializers is a difficult concept and it took me a lot of time to figure out all the issues, thus, I decided to create a workiing example so others can also reading the stated blogs plus go through here. This repo also contains example code to allow image upload using DRF, please see the section [Photo Upload](#Photo-upload). Since I am using the repo as test bed, so a specific case (where JSON contain data in a specific format) is also tested in section [One2Many JSON](One2Many-JSON).  
 
 Most of the code in this repo is taken from [this](https://medium.com/@rushic24/creating-nested-serializers-in-django-rest-framework-5110c6674fba) medium post and [this](https://medium.com/@gurupratap.matharu/build-a-restapi-using-nested-serializers-in-django-rest-framework-c0f6a31fd865) medium post.  The code is enhanced to apply some chesk, explained in details below. 
 
@@ -58,3 +58,55 @@ how to use the code.
 2. add class in models to take care of the photo data 
 3. add a serializer to handle the data. 
 4. follow the blog to build post request 
+
+
+## One2Many JSON
+
+The JSON in question is 
+
+```JSON
+
+[
+  {
+    "entry":{
+     "id": 1,
+     "recorded_date": "2021-9-27",
+     "name":"David",
+     "description": "Description of the record",
+     "one2many":[
+      "one",
+      "two",
+      "three"  
+     ] 
+
+    }
+  }
+
+]
+
+```
+
+
+## Some commands related to Sqlite
+
+Connect with your database using CLI
+
+```
+Sqlite3 db.sqlite3 
+```
+
+How to see all tables
+
+```
+.tables
+```
+
+How to see table structure
+
+```
+.schema tablename
+```
+
+
+
+

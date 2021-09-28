@@ -1,4 +1,6 @@
 from django.db import models
+#from datetime import datetime
+from django.utils import timezone
 
 class Book(models.Model):
     title = models.CharField(max_length=30)
@@ -36,3 +38,18 @@ class MyPhoto(models.Model):
     description = models.CharField(max_length=255)
     uploaded_at = models.DateTimeField(auto_now_add=True)
     
+
+class Entry(models.Model):
+    recorded_date = models.DateTimeField(null=False,blank=False, default=timezone.now)
+    name = models.CharField(max_length=100,null=False)
+    description = models.CharField(max_length=100,null=False)
+
+    def __str__(self):
+        return(self.name)
+
+class One2Many(models.Model):
+    option = models.CharField(max_length=100,null=False)
+    entry = models.ForeignKey(Entry,related_name='entry_One2Many', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return(self.option)

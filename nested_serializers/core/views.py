@@ -4,16 +4,19 @@ from django.shortcuts import render
 # for this code 
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import serializers
 
-from rest_framework.parsers import MultiPartParser, FormParser
 
-from .models import Book, country, state, town, MyPhoto
+from rest_framework.parsers import MultiPartParser, FormParser  # for photo uploader
 
-from .serializers import BookSerializer, BookDetailsSerializer, StateSerializer,CountrySerializer, MyPhotoSerializer
+from .models import Book, country, state, town, MyPhoto, Entry, One2Many
+
+from .serializers import BookSerializer,CountrySerializer, MyPhotoSerializer
 
 
 from rest_framework import status # for HTTP_200_BAD_REQUES etc
 
+import json # to creat JSON object for One2Many serializer
 
 class BookView(APIView):
 
@@ -107,5 +110,52 @@ class MyPhotoView(APIView):
             return Response(file_serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class One2ManyView(APIView):
+
+    def post(self,request):
+        try:
+            data_json = request.data
+
+            entry_json = data_json
+            print(entry_json)
+            
+            entry_json.pop('id')
+
+            print(entry_json)
+            one2many_json = entry_json.pop('one2many') 
+            print(entry_json)
+            
+            entry_obj = Entry.objects.create(**entry_json)
+
+            print(one2many_json)
+
+            option_str = ''
+            for option in one2many_json:
+                print(option)
+                option_str +=option +" "
+
+            print(option_str)  
+            option_json_str = {}  # create dictionary
+            option_json_str['option'] = option_str  # append dictionary 
+            option_json = json.dumps(option_json_str)   # convert dictonrary to json like str
+            option_json = json.loads(option_json)       # convert json str to json obj 
+
+            #option_json = serializers.Serializer ('json',option_json)
+
+            print(option_json)
+
+
+            One2Many.objects.create(**option_json,entry=entry_obj)
+            
+
+            return Response(status=status.HTTP_200_OK)
+            
+        except Exception as e:
+            #return Response(e, status=status.HTTP_400_BAD_REQUEST)    
+            return Response(data={"error": str(e)},status=status.HTTP_400_BAD_REQUEST)
+
+
 
 

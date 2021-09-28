@@ -27,7 +27,7 @@ ALLOWED_HOSTS = []
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
+SECRET_KEY = 'fxm-i)6r)6)&n!+77rza+ng6fabl6sgp1-)k6x2400!6_^_g3j'
 
 
 # Application definition
