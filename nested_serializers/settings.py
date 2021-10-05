@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+# load more settings from local_s
+try:
+    from .local_settings import *
+except ImportError:
+    ImportError
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,9 +31,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'fxm-i)6r)6)&n!+77rza+ng6fabl6sgp1-)k6x2400!6_^_g3j'
 
 
 # Application definition
@@ -133,3 +136,8 @@ STATIC_URL = '/static/'
 # specifically added for photo upload view 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+# Location of locale files
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+    )
