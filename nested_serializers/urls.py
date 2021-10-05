@@ -31,5 +31,6 @@ urlpatterns = [
     path(r'addtown/', views.TownView.as_view(), name='posttown'),
     url(r'upload/$', views.MyPhotoView.as_view(), name='file-upload'),
     path(r'entry/', views.One2ManyView.as_view(),name="One2Many"),
+    path(r'person/', views.PersonView.as_view(),name="Person"),
 
 ]

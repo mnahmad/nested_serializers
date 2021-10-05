@@ -1,5 +1,9 @@
 # Nested Serializer 
-Nested serializers is a difficult concept and it took me a lot of time to figure out all the issues, thus, I decided to create a workiing example so others can also reading the stated blogs plus go through here. This repo also contains example code to allow image upload using DRF, please see the section [Photo Upload](#Photo-upload). Since I am using the repo as test bed, so a specific case (where JSON contain data in a specific format) is also tested in section [One2Many JSON](One2Many-JSON).  
+Nested serializers is a difficult concept and it took me a lot of time to figure out all the issues, thus, I decided to create a workiing example so others can also reading the stated blogs plus go through here. This repo also contains example code 
+
+1. to allow image upload using DRF, please see the section [Photo Upload](#Photo-upload). 
+2. for specific case (where JSON contain data in a specific format) is also tested in section [One2Many JSON](#One2Many-JSON). 
+3. For specific case where [JSON Key name](#Change-JSON-Key-Name) needs to be changed to match model field name. 
 
 Most of the code in this repo is taken from [this](https://medium.com/@rushic24/creating-nested-serializers-in-django-rest-framework-5110c6674fba) medium post and [this](https://medium.com/@gurupratap.matharu/build-a-restapi-using-nested-serializers-in-django-rest-framework-c0f6a31fd865) medium post.  The code is enhanced to apply some chesk, explained in details below. 
 
@@ -85,6 +89,9 @@ The JSON in question is
 ]
 
 ```
+
+
+## Change JSON Key Name
 
 
 ## Some commands related to Sqlite

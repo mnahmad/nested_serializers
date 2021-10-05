@@ -53,3 +53,18 @@ class One2Many(models.Model):
 
     def __str__(self):
         return(self.option)
+
+class person(models.Model):
+    """
+    Class to hold farmer's data
+        1. recorded_dte in this model represents time of data upload onto server.  
+
+    """
+    recorded_dte = models.DateTimeField(auto_now_add=True, null = False)
+    first_name = models.CharField(max_length=100, null=False)
+    middle_name = models.CharField(max_length= 100, null=True)
+    last_name = models.CharField(max_length= 100, null=True)
+    organization = models.CharField(max_length=100,null=True) 
+
+    def __str__(self):
+        return (self.first_name)

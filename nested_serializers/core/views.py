@@ -9,9 +9,9 @@ from rest_framework import serializers
 
 from rest_framework.parsers import MultiPartParser, FormParser  # for photo uploader
 
-from .models import Book, country, state, town, MyPhoto, Entry, One2Many
+from .models import Book, country, state, town, MyPhoto, Entry, One2Many,person
 
-from .serializers import BookSerializer,CountrySerializer, MyPhotoSerializer
+from .serializers import BookSerializer,CountrySerializer, MyPhotoSerializer, PersonSerializer
 
 
 from rest_framework import status # for HTTP_200_BAD_REQUES etc
@@ -159,3 +159,26 @@ class One2ManyView(APIView):
 
 
 
+
+class PersonView(APIView):
+    """
+    This class shows an exmaple to change JSON key name according to the serializer/model field name
+    """
+    
+    def post(self, request):
+
+        data_json = request.data
+
+        entry_json = data_json
+        print(entry_json)
+    
+        
+        # rename JSON key 'name' to 'first_name'
+        entry_json['first_name'] = entry_json.pop('name')
+        
+        print(entry_json)
+
+        person.objects.create(**entry_json)
+        
+    
+        return Response(status=status.HTTP_200_OK)
